@@ -1,0 +1,29 @@
+name: CI - KRIPA Branch
+
+on:
+  push:
+    branches:
+      - KRIPA
+  pull_request:
+    branches:
+      - KRIPA
+
+jobs:
+  kripa-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Show Branch Name
+        run: echo "Running CI for KRIPA branch"
+
+      - name: Validate HTML File
+        run: |
+          if [ -f "kripa.html" ]; then
+            echo "kripa.html exists ✅"
+          else
+            echo "kripa.html missing ❌"
+            exit 1
+          fi
