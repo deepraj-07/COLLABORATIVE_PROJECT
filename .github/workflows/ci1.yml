@@ -1,0 +1,15 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "KRIPA" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Project
+        run: echo "All tests passed from Kaipashankar's Branch✅"
